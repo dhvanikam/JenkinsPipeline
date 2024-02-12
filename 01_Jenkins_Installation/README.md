@@ -1,4 +1,5 @@
 # Jenkins Installtion on macOS
+I am using macOS for this project so only metioned Jenkins installation for macOS Only. For other system please visit :  https://www.jenkins.io/doc/book/installing/.
 
 Jenkins can be installed using the Homebrew package manager. Homebrew formula: jenkins-lts This is a package supported by a third party which may be not as frequently updated as packages supported by the Jenkins project directly.
 
