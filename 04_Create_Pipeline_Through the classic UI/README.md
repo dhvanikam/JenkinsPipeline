@@ -1,4 +1,4 @@
-# Jenkins Pipeline 
+# Jenkins Pipeline Through UI
 
 ## Prerequisites
 To use Jenkins Pipeline, we will need:
