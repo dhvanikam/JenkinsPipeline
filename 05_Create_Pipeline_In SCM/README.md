@@ -38,12 +38,13 @@ pipeline {
             }
         }
     }
- post {
+    post {
         always {
             echo 'Cleanup after everything!'
         }
     }
 }
+
 ```
 
 ## Setup Git and GitHub with Jenkins
