@@ -9,3 +9,8 @@
 * [05_Jenkins_Pipeline_Blue Ocean](https://github.com/dhvanikam/JenkinsPipeline/tree/2eede0f6a605e62a2d6c07dd384e70d018ce1994/05_Jenkins_Pipeline_Blue%20Ocean%20)
 * [06_Pipeline_Post_Actions](https://github.com/dhvanikam/JenkinsPipeline/tree/2eede0f6a605e62a2d6c07dd384e70d018ce1994/06_Pipeline_Post_Actions)
 * [07_Pipeline_Sequential_Parallel_Stages](https://github.com/dhvanikam/JenkinsPipeline/tree/2eede0f6a605e62a2d6c07dd384e70d018ce1994/07_Pipeline_Sequential_Parallel_Stages)
+
+## Basic Flow of Pipeline
+
+
+![Pipeline drawio](https://github.com/dhvanikam/JenkinsPipeline/assets/73573915/62e8942c-f2e8-4719-b526-7ea20107af3a)
