@@ -54,12 +54,13 @@ pipeline {
             }
         }
     }
- post {
+    post {
         always {
             echo 'Cleanup after everything!'
         }
     }
 }
+
 ```
 
 <img width="1537" alt="Step4" src="https://github.com/dhvanikam/JenkinsPipeline/assets/73573915/f84c7dce-8fa4-45d7-b1e7-6fc62ae2c06f">
