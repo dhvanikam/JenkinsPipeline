@@ -3,6 +3,9 @@
 ## Sequential Stages
 Stages in Declarative Pipeline may have a stages section containing a list of nested stages to be run in sequential order.
 
+```
+
+```
 
 <img width="2000" alt="Step12" src="https://github.com/dhvanikam/JenkinsPipeline/assets/73573915/a3e8bc36-953d-4bc6-af76-7dbbf3b17812">
 
@@ -10,49 +13,74 @@ Stages in Declarative Pipeline may have a stages section containing a list of ne
 ## Parallel Stages
 Stages in Declarative Pipeline may have a parallel section containing a list of nested stages to be run in parallel.
 
+
+<img width="2168" alt="Step16" src="https://github.com/dhvanikam/JenkinsPipeline/assets/73573915/228d270d-5fe9-4220-896c-0e98e9f2514f">
+
+
+
+
+
 ```
 pipeline {
     agent any
-    stages {       
-        stage('Compile Stage') {
+    stages {
+        stage('build') {
             steps {
-                withMaven(maven:'MyMaven') {
-                    sh 'mvn clean compile'
+                echo 'Pre-build'
+            }
+        }
+        stage('Unit tests') {
+            steps {
+                echo 'Running unit tests'
+            }
+        }
+        stage('deploy') {
+            steps {
+                echo 'Deploying build'
+            }
+        }
+        stage('Regression tests') {
+            parallel {
+                stage('Test On chrome') {
+                    steps {
+                        withMaven(maven:'MyMaven') {
+                            sh 'mvn test -Dbrowser=chrome'
+                        }
+                    }
+                    post {
+                        always {
+                            allure includeProperties: false, jdk: '', results: [[path: 'allure-results']]
+                        }
+                    }
+                }
+                stage('Test On firefox') {
+                    steps {
+                        withMaven(maven:'MyMaven') {
+                            sh 'mvn test -Dbrowser=chrome'
+                        }
+                    }
+                    post {
+                        always {
+                            allure includeProperties: false, jdk: '', results: [[path: 'allure-results']]
+                        }
+                    }
                 }
             }
         }
-        stage('Testing Stage') {
-            parallel {
-                stage('Test with chrome') {
-                    steps {
-                        withMaven(maven:'MyMaven') {
-                            sh 'mvn test -Dbrowser=chrome -Dallure.results.directory=./target/chrome/allure-results'
-                        }
-                    }
-                }
-                stage('Test with firefox') {
-                    steps {
-                        withMaven(maven:'MyMaven') {
-                            sh ' mvn test -Dbrowser=firefox -Dallure.results.directory=./target/firefox/allure-results'
-                        }
-                    }
-                }
+        stage('Release to prod') {
+            steps {
+                echo 'Releasing to prod'
             }
         }
     }
-
     post {
         always {
-                    allure([includeProperties: false,
-                        jdk: '',
-                        properties: [],
-                        reportBuildPolicy: 'ALWAYS',
-                        results: [
-                            [path: 'target/chrome/allure-results'],
-                            [path: 'target/firefox/allure-results']
-                        ]
-                    ])
+            echo 'Cleanup after everything!'
         }
     }
 }
+
 ```
+
+
+
