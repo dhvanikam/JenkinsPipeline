@@ -4,7 +4,7 @@
 To use Jenkins Pipeline, we will need:
 
 1. Jenkins 2.x or later.
-2. Pipeline plugin.  (Note : which is installed as part of the "suggested plugins", if not installed than got to Dashboard --> Manage Jenkins --> Plugins --> Avialable Plugins, search for "Pipeline" and install plugin)
+2. Pipeline plugin.  (Note : which is installed as part of the "suggested plugins", if not installed than got to Dashboard --> Manage Jenkins --> Plugins --> Available Plugins, search for "Pipeline" and install plugin)
 
 ## Create using Jenkins UI
 
