@@ -60,7 +60,7 @@ pipeline {
 
 To configure your Pipeline project to use a Jenkinsfile from source control:
 
-Follow the previouse mentioned steps till Step 3.
+Follow the previouse mentioned steps till Step 3 in 03_Create_Pipeline_Through the classic UI.
 
 Step 4: Select option Pipeline - Definition as "Pipeline script from SCM"
 
