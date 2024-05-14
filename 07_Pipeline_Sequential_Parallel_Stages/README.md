@@ -91,7 +91,7 @@ pipeline {
                 stage('Test On firefox') {
                     steps {
                         withMaven(maven:'MyMaven') {
-                            sh 'mvn test -Dbrowser=chrome'
+                            sh 'mvn test -Dbrowser=firefox'
                         }
                     }
                     post {
